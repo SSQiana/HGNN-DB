@@ -8,7 +8,7 @@ Please download them and put them in ```dataset`` folder.
 [PyTorch 1.12.0](https://pytorch.org/),
 [numpy](https://github.com/numpy/numpy),
 [pandas](https://github.com/pandas-dev/pandas),
-[dgl 1.0.0](https://www.dgl.ai/)
+[dgl 1.0.0](https://www.dgl.ai/),
 [scipy](https://scipy.org/)
 
 ## Model Training
