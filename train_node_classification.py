@@ -29,11 +29,11 @@ def get_device(device):
 
 def load_data(dataset, device):
     if dataset == 'acm':
-        mgs, feats, labels, num_classes, train_mask, val_mask, test_mask, pos = load_ACM_data()
+        _, mgs, feats, labels, num_classes, train_mask, val_mask, test_mask, pos = load_ACM_data()
     elif dataset == 'dblp':
-        mgs, feats, labels, num_classes, train_mask, val_mask, test_mask, pos = load_DBLP_data()
+        _, mgs, feats, labels, num_classes, train_mask, val_mask, test_mask, pos = load_DBLP_data()
     elif dataset == 'yelp':
-        mgs, feats, labels, num_classes, train_mask, val_mask, test_mask, pos = load_YELP_data()
+        _, mgs, feats, labels, num_classes, train_mask, val_mask, test_mask, pos = load_YELP_data()
     else:
         print(f"Unknown dataset: {dataset}. Please provide a valid dataset name.")
 
@@ -100,35 +100,6 @@ def train(args):
     print('ARI: {:.6f}'.format(ari))
     print('all finished')
     print('平均时间：', total_time/num)
-
-    # with open('evaluation_results_of_k_layer.txt', 'a') as file:
-    #
-    #     file.write(dataset + '\n')
-    #     file.write('beta: {:.6f}\n'.format(b))
-    #     file.write('Macro-F1: ' + ', '.join(['{:.6f}'.format(macro_f1) for macro_f1 in svm_macro]) + '\n')
-    #     file.write('Micro-F1: ' + ', '.join(['{:.6f}'.format(micro_f1) for micro_f1 in svm_micro]) + '\n')
-    #     file.write('NMI: {:.6f}\n'.format(nmi))
-    #     file.write('ARI: {:.6f}\n'.format(ari))
-    # Y = labels[test_mask].cpu().numpy()
-    # ml = TSNE(n_components=2)
-    # node_pos = ml.fit_transform(embeds[test_mask].detach().cpu().numpy())
-    # color_idx = {}
-    # for i in range(len(embeds[test_mask].detach().cpu().numpy())):
-    #     color_idx.setdefault(Y[i], [])
-    #     color_idx[Y[i]].append(i)
-    # for c, idx in color_idx.items():  # c是类型数，idx是索引
-    #     if str(c) == '1':
-    #         plt.scatter(node_pos[idx, 0], node_pos[idx, 1], c='#DAA520', s=15, alpha=1)
-    #     elif str(c) == '2':
-    #         plt.scatter(node_pos[idx, 0], node_pos[idx, 1], c='#8B0000', s=15, alpha=1)
-    #     elif str(c) == '0':
-    #         plt.scatter(node_pos[idx, 0], node_pos[idx, 1], c='#6A5ACD', s=15, alpha=1)
-    #     elif str(c) == '3':
-    #         plt.scatter(node_pos[idx, 0], node_pos[idx, 1], c='#006400', s=15, alpha=1)
-    # plt.legend()
-    # # plt.savefig(".\\visualization\ROHE_323_" + str(args['dataset']) + "分类图" + str(cur_repeat) + ".png", dpi=1000,
-    # #             bbox_inches='tight')
-    # plt.show()
 
 
 def main():

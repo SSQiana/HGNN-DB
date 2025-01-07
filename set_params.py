@@ -118,6 +118,7 @@ def set_params():
     # Base parser for common arguments
     parser = argparse.ArgumentParser(description="HGNN-DB Parameters")
     parser.add_argument('--dataset', type=str, default='acm', help='name of the dataset')
+    parser.add_argument('--strategy', type=str, default='rand')# cand
 
     # Parse the dataset argument first
     args, remaining_args = parser.parse_known_args()

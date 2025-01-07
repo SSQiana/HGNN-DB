@@ -23,6 +23,8 @@ def load_ACM_data(prefix=r'dataset/ACM'):
     g2 = dgl.DGLGraph(PSP)
     g3 = dgl.DGLGraph(PP)
     g = [g1, g2, g3]
+    # g = [g1, g2]
+
     features = torch.FloatTensor(features_0)
     features = F.normalize(features, dim=1, p=2)
 
@@ -39,11 +41,14 @@ def load_ACM_data(prefix=r'dataset/ACM'):
     # fsim = cos(features_0)
     # fsim = fsim / fsim.sum(-1).reshape(-1, 1)
 
-    return g, features, labels, num_classes, train_idx, val_idx, test_idx, pos
+    return (PSP).todense(), g, features, labels, num_classes, train_idx, val_idx, test_idx, pos
 
 
 def load_DBLP_data(prefix=r'dataset/DBLP'):
     features_0 = scipy.sparse.load_npz(prefix + '/features_0.npz').A
+    adjM = scipy.sparse.load_npz(prefix + '/adjM.npz').toarray()
+
+    AA = scipy.sparse.csr_matrix(adjM[:4057, :4057])
 
     labels = np.load(prefix + '/labels.npy')
 
@@ -57,6 +62,8 @@ def load_DBLP_data(prefix=r'dataset/DBLP'):
     g2 = dgl.DGLGraph(APTPA)
     g3 = dgl.DGLGraph(APVPA)
     g = [g1, g2, g3]
+    # g = [g2]
+
     features = torch.FloatTensor(features_0)
 
     labels = torch.LongTensor(labels)
@@ -69,7 +76,7 @@ def load_DBLP_data(prefix=r'dataset/DBLP'):
     pos = scipy.sparse.load_npz(prefix + "/new_pos.npz")
     pos = torch.FloatTensor(pos.todense())
 
-    return g, features, labels, num_classes, train_idx, val_idx, test_idx, pos
+    return APA, g, features, labels, num_classes, train_idx, val_idx, test_idx, pos
 
 
 def load_YELP_data(prefix=r'dataset/YELP'):
@@ -86,10 +93,12 @@ def load_YELP_data(prefix=r'dataset/YELP'):
     BLB = scipy.sparse.load_npz(prefix + '/adj_blb.npz')
     BSB = scipy.sparse.load_npz(prefix + '/adj_bsb.npz')
     BUB = scipy.sparse.load_npz(prefix + '/adj_bub.npz')
+    BLB1 = sp.csr_matrix(BLB)
     g1 = dgl.DGLGraph(BLB)
     g2 = dgl.DGLGraph(BSB)
     g3 = dgl.DGLGraph(BUB)
     g = [g1, g2, g3]
+
     features = torch.FloatTensor(features_0)
 
     labels = torch.LongTensor(labels)
@@ -98,5 +107,5 @@ def load_YELP_data(prefix=r'dataset/YELP'):
     pos = scipy.sparse.load_npz(prefix + "/new_pos.npz")
     pos = torch.FloatTensor(pos.todense())
 
-    return g, features, labels, num_classes, train_idx, val_idx, test_idx, pos
+    return BLB1, g, features, labels, num_classes, train_idx, val_idx, test_idx, pos
 
