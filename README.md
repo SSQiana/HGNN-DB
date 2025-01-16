@@ -21,6 +21,7 @@ The following libraries are required:
 python train_node_classification.py --dataset acm --alpha 0.5 --gamma 0.8 --beta 3 --k 6
 ```
 ### Scripts for  Link Prediction
+* Example of training *HGNN-DB* on *ACM* dataset:
 ```{bash}
 python train_link_prediction.py --dataset acm --alpha 0.5 --gamma 0.8 --beta 3 --k 6 --strategy rand
 ```
