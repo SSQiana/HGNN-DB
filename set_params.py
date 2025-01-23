@@ -10,7 +10,7 @@ def acm_params(parser):
     parser.add_argument('--attn-drop', type=float, default=0.5, help='attention dropout')
     parser.add_argument('--tau', type=float, default=0.8, help='temperature parameter')
     parser.add_argument(
-        '--lambda', type=float, default=0.5, dest='lambda_',
+        '--lambda', type=float, default=0.6, dest='lambda_',
         help='balance coefficient of contrastive loss'
     )
     parser.add_argument(
@@ -22,7 +22,7 @@ def acm_params(parser):
         help='Balance weights between different embeddings'
     )
     parser.add_argument('--epochs', type=int, default=10000, help='number of training epochs')
-    parser.add_argument('--lr', type=float, default=0.0008, help='learning rate')
+    parser.add_argument('--lr', type=float, default=0.0002, help='learning rate')
     parser.add_argument('--beta', type=float, default=3)
     parser.add_argument('--k', type=int, default=5)
 
@@ -38,7 +38,7 @@ def dblp_params(parser):
     parser.add_argument('--attn-drop', type=float, default=0.5, help='attention dropout')
     parser.add_argument('--tau', type=float, default=0.8, help='temperature parameter')
     parser.add_argument(
-        '--lambda', type=float, default=0.5, dest='lambda_',
+        '--lambda', type=float, default=0.6, dest='lambda_',
         help='balance coefficient of contrastive loss'
     )
     parser.add_argument(
@@ -50,9 +50,9 @@ def dblp_params(parser):
         help='Balance weights between different embeddings'
     )
     parser.add_argument('--epochs', type=int, default=10000, help='number of training epochs')
-    parser.add_argument('--lr', type=float, default=0.0008, help='learning rate')
-    parser.add_argument('--beta', type=float, default=1.5)
-    parser.add_argument('--k', type=int, default=3)
+    parser.add_argument('--lr', type=float, default=0.0002, help='learning rate')
+    parser.add_argument('--beta', type=float, default=3)
+    parser.add_argument('--k', type=int, default=5)
 
     return parser
 
@@ -66,7 +66,7 @@ def yelp_params(parser):
     parser.add_argument('--attn-drop', type=float, default=0.5, help='attention dropout')
     parser.add_argument('--tau', type=float, default=0.8, help='temperature parameter')
     parser.add_argument(
-        '--lambda', type=float, default=0.5, dest='lambda_',
+        '--lambda', type=float, default=0.6, dest='lambda_',
         help='balance coefficient of contrastive loss'
     )
     parser.add_argument(
@@ -78,9 +78,9 @@ def yelp_params(parser):
         help='Balance weights between different embeddings'
     )
     parser.add_argument('--epochs', type=int, default=10000, help='number of training epochs')
-    parser.add_argument('--lr', type=float, default=0.0008, help='learning rate')
-    parser.add_argument('--beta', type=float, default=4)
-    parser.add_argument('--k', type=int, default=2)
+    parser.add_argument('--lr', type=float, default=0.0002, help='learning rate')
+    parser.add_argument('--beta', type=float, default=3)
+    parser.add_argument('--k', type=int, default=5)
 
     return parser
 
@@ -94,7 +94,7 @@ def aminer_params(parser):
     parser.add_argument('--attn-drop', type=float, default=0.5, help='attention dropout')
     parser.add_argument('--tau', type=float, default=0.8, help='temperature parameter')
     parser.add_argument(
-        '--lambda', type=float, default=0.5, dest='lambda_',
+        '--lambda', type=float, default=0.6, dest='lambda_',
         help='balance coefficient of contrastive loss'
     )
     parser.add_argument(
@@ -106,9 +106,9 @@ def aminer_params(parser):
         help='Balance weights between different embeddings'
     )
     parser.add_argument('--epochs', type=int, default=10000, help='number of training epochs')
-    parser.add_argument('--lr', type=float, default=0.0008, help='learning rate')
+    parser.add_argument('--lr', type=float, default=0.0002, help='learning rate')
     parser.add_argument('--beta', type=float, default=3)
-    parser.add_argument('--k', type=int, default=6)
+    parser.add_argument('--k', type=int, default=5)
 
     return parser
 
