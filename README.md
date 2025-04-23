@@ -25,3 +25,17 @@ python train_node_classification.py --dataset acm --alpha 0.5 --gamma 0.8 --beta
 ```{bash}
 python train_link_prediction.py --dataset acm --alpha 0.5 --gamma 0.8 --beta 3 --k 6 --strategy rand
 ```
+### Cite us
+
+```bibtex
+@article{song2025self,
+  title={Self-supervised heterogeneous graph neural network based on deep and broad neighborhood encoding},
+  author={Song, Qianyu and Li, Chao and Fu, Jinhu and Zeng, Qingtian and Xie, Nengfu},
+  journal={Applied Intelligence},
+  volume={55},
+  number={6},
+  pages={467},
+  year={2025},
+  publisher={Springer}
+}
+```
