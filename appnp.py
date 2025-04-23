@@ -58,40 +58,7 @@ class APPNPConv(nn.Module):
                 # normalization by dst node
                 if edge_weight is None:
                     feat = feat * dst_norm
-                # feat = (1 - self._alpha) * feat + self._alpha * feat_0
-                # return feat
-                # if _ != 0:
                 z.append(feat)
-
-
-            # weights = self.softmax(self.weights)
-            # weighted_matrices = []
-            # for i in range(len(z)):
-            #     weighted_matrix = weights[i] * z[i]
-            #     weighted_matrices.append(weighted_matrix)
-            #
-            # feat = th.stack(weighted_matrices).sum(dim=0)
-            # print(weights.cpu().detach())
-            # return feat/len(z)
-
-
-            # z_concat = th.cat(z, dim=1)  #
-            # # z_concat = z_concat.view(z_concat.size(0), -1)
-            # z_out = self.linear(z_concat)
-            #
-            # return z_out
-
-
-            # beta = 0.7
-            # denominator = sum([beta ** i for i in range(1, len(z) + 1)])
-            # normalized_matrices = []
-            # for k in range(len(z)):
-            #     normalization_factor = beta ** k / denominator
-            #     normalized_matrix = normalization_factor * z[k]
-            #     normalized_matrices.append(normalized_matrix)
-            # feat1 = th.stack(normalized_matrices)
-            # return th.sum(feat1, dim=0)
-
 
             beta = self.beta
             denominator = sum([math.log(beta + i) for i in range(1, len(z) + 1)])
